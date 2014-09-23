@@ -1,0 +1,25 @@
+/*
+ *
+ *  distribution of classes for project.	
+ *
+ */
+ 
+	com.todo
+		|
+		|-- Main.java  // Contain the Jetty Server.
+		|
+		|---- com.todo.resources
+		|			|
+		|			|-- ToDoService.java // Contains the @GET, @POST, @DELETE etc methods to be used by RESTful Client.
+		|			|-- ToDoData.java // Class to hold/manipulate the data as needed.
+		|
+		|
+		|---- com.todo.templates
+		|			|
+		|			|-- ToDo.java // This contains the template of the ToDo method.
+		|
+		|
+		|---- com.todo.utils
+					|
+					|-- Twilio.java // This contains the classes necessary to send and read msgs from the Twilio API
+					|-- Mongo.java // Mongo DB connection to store ToDo Tasks 
