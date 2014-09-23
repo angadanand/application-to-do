@@ -21,19 +21,6 @@
             <version>7.6.0.v20120127</version>
         </dependency>
 		
-		<!-- JSP Support -->
-	    <dependency>
-	        <groupId>org.glassfish.web</groupId>
-	        <artifactId>javax.servlet.jsp</artifactId>
-	        <version>${glassfish.javax.version}</version>
-	    </dependency>
-	
-	    <dependency>
-	        <groupId>org.glassfish.web</groupId>
-	        <artifactId>jsp-impl</artifactId>
-	        <version>${glassfish.javax-impl.version}</version>
-	    </dependency>
-		
 		<!-- EL Support -->
 	    <dependency>
 	        <groupId>org.glassfish.web</groupId>
@@ -60,19 +47,6 @@
             <version>4.10</version>
             <scope>test</scope>
         </dependency>
-        
-        <!-- JSTL Support -->
-	    <dependency>
-	        <groupId>javax.servlet</groupId>
-	        <artifactId>jstl</artifactId>
-	        <version>${glassfish.jstl.version}</version>
-	    </dependency>
-	
-	    <dependency>
-	        <groupId>org.glassfish.web</groupId>
-	        <artifactId>jstl-impl</artifactId>
-	        <version>${glassfish.jstl.version}</version>
-	    </dependency>
     </dependencies>
 
     <build>
