@@ -21,13 +21,6 @@
             <version>7.6.0.v20120127</version>
         </dependency>
 		
-		<!-- EL Support -->
-	    <dependency>
-	        <groupId>org.glassfish.web</groupId>
-	        <artifactId>javax.el</artifactId>
-	        <version>${glassfish.javax.version}</version>
-	    </dependency>
-		
         <!-- Jersey -->
         <dependency>
             <groupId>com.sun.jersey</groupId>
