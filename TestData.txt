@@ -3,3 +3,14 @@
 
 {"id":"","title":"test1","body":"bodytest1","done":"false"}
 
+___________________________________________________
+https://github.com/searchly/searchly-java-sample
+https://github.com/searchbox-io/Jest/tree/master/jest
+https://devcenter.heroku.com/articles/searchbox
+______________________________________________
+{"title":"Buy Eggs","body":"Buy 3 dozen eggs from FoodMax","done":"false"}
+{"title": "Laundry","body": "Wash Clothes Today @7PM","done": false}
+{"title": "Cook","body": "Cook Food for the week","done": false}
+{"title": "Assignment","body": "Complete Prof. Cook Assignment","done": false}
+{"title": "Clean House","body": "Kitchen and bathroom need mopping","done": false}
+{"title": "Clean Car","body": "The honda civic needs a car wash","done": false}
