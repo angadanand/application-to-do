@@ -16,7 +16,7 @@ import com.todo.templates.ToDo;
 @Path("/todo")
 public class ToDoService {
 	
-	private ToDoController data = new ToDoController();
+	ToDoController data = new ToDoController();
 	
 	//Testing Service.
 	@GET
@@ -25,7 +25,6 @@ public class ToDoService {
 	public Response test(){
 		return Response.ok().entity("Service Testing Successful").build();
 	}
-	
 	
 	/*
 	@GET
