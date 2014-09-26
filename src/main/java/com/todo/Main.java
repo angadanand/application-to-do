@@ -42,9 +42,6 @@ public class Main {
         root.setParentLoaderPriority(true);
 
         server.setHandler(root);
-
         server.start();
-        server.join();
     }
-
 }
