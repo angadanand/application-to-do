@@ -14,3 +14,4 @@ ______________________________________________
 {"title": "Assignment","body": "Complete Prof. Cook Assignment","done": false}
 {"title": "Clean House","body": "Kitchen and bathroom need mopping","done": false}
 {"title": "Clean Car","body": "The honda civic needs a car wash","done": false}
+{"title": "Get Clothes","body": "Pick up all the clothes from the dry cleaners","done": false}

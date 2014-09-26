@@ -3,18 +3,41 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script> 
-    $(function(){
-      $("#header").load("header.html"); 
-    });
-    $(function(){
-        $("#body").load("addToDo.html"); 
-      });
-    </script>
+<link href="scripts/css/bootstrap.min.css" rel="stylesheet">
+<link href="scripts/css/buttons.css" rel="stylesheet">
 </head>
 <body>
-	<div id="header"></div>
-	<div id="body"></div>
+	<div id="header">
+		<ul class="nav nav-pills nav-justified" role="tablist">
+		  <li id="nav_home" class="active"><a href="index.html">Home</a></li>
+		  <li id="nav_search"><a href="search.html">Search</a></li>
+		  <li id="nav_settings"><a href="settings.html">Settings</a></li>
+		</ul>
+	</div>
+	<br />
+	<div id="body">
+		<table width="70%" border="0" style="margin-left:auto; margin-right:auto">
+		<tr>
+			<td align="center"> <h4><b>New Task :</b></h4>
+			<td align="center"><input type="text" id="title" class="form-control" placeholder="Title"/></td>
+			<td align="center"><textarea rows="4" cols="25" placeholder="Task Description"></textarea></td>
+			<td align="center"><button id="btn_addtodo" class="btn btn-primary round btn-sm">Add</button></td>
+		</tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr>
+			<td align="center"> <h5><b>Quick Options :</b></h5></td>
+			<td align="center"> <button id="btn_restore" class="btn btn-primary round btn-sm">Restore</button></td>
+			<td align="center"> <button id="btn_showdone" class="btn btn-primary round btn-sm">Show Tasks To Do</button></td>
+			<td align="center"> <button id="btn_shownotdone" class="btn btn-primary round btn-sm">Show Tasks Completed</button></td>
+		</tr>
+		</table>
+		<br />
+		<div class="alert alert-success" id="success" style="width:7cm;text-align:center;margin-left:auto;margin-right:auto;visibility:hidden"><b>Successfully Completed!</b></div>
+		<div class="alert alert-danger" id="failure" style="width:7cm;text-align:center;margin-left:auto;margin-right:auto;visibility:hidden"><b>Some Error Occurred!</b></div>
+		
+		<div id="todotable"></div>
+	</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="scripts/js/index.js"></script>
 </body>
 </html>
