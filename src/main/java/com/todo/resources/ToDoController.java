@@ -3,7 +3,6 @@ package com.todo.resources;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import com.todo.templates.BaseController;
 import com.todo.templates.ToDo;
 
@@ -17,7 +16,7 @@ public class ToDoController extends BaseController{
 	 */
 	static private ArrayList<ToDo> tasksdone = new ArrayList<ToDo>();
 	static private ArrayList<ToDo> tasksnotdone = new ArrayList<ToDo>();
-	String clientnumber;
+	static private String clientnumber;
 	
 	public ToDoController(){
 		clientnumber = "";
@@ -27,8 +26,8 @@ public class ToDoController extends BaseController{
 		return clientnumber;
 	}
 	
-	public void setClientnumber(String clientnumber){
-		this.clientnumber = clientnumber;
+	public static void setClientnumber(String clientnum){
+		clientnumber = clientnum;
 	}
 	
 	public ArrayList<ToDo> getDone(){
