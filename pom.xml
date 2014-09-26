@@ -5,8 +5,9 @@
     <groupId>org.todo</groupId>
     <version>1.0</version>
     <artifactId>To-Do-App</artifactId>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <url>http://maven.apache.org</url>
+  	<properties>
+  	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <repositories>
     <repository>
@@ -16,7 +17,11 @@
    	</repository>
     </repositories>
     <dependencies>
-        <!-- Jetty -->
+    
+    	
+	    
+	    <!-- Jetty  -->
+	    
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlet</artifactId>
@@ -27,6 +32,7 @@
             <artifactId>jetty-webapp</artifactId>
             <version>7.6.0.v20120127</version>
         </dependency>
+		
 		
         <!-- Jersey -->
         <dependency>
