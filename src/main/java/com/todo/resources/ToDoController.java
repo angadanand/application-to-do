@@ -16,7 +16,7 @@ public class ToDoController extends BaseController{
 	 */
 	static private ArrayList<ToDo> tasksdone = new ArrayList<ToDo>();
 	static private ArrayList<ToDo> tasksnotdone = new ArrayList<ToDo>();
-	static String clientnumber;
+	static private String clientnumber;
 	
 	
 	public ToDoController(){
@@ -48,7 +48,7 @@ public class ToDoController extends BaseController{
 		if(tasksnotdone.add(todo)){
 			if(updateESDocument(todo)){
 				if(!(clientnumber.equals(""))){
-					sendSMS("New Task : "+todo.getTitle()+"\n"+todo.getBody(), clientnumber);
+					//sendSMS("New Task : "+todo.getTitle()+"\n"+todo.getBody(), clientnumber);
 				}
 				return true;
 			}
@@ -67,7 +67,7 @@ public class ToDoController extends BaseController{
 			if(tasksdone.add(todo)){
 				if(updateESDocument(todo)){
 					if(!(clientnumber.equals(""))){
-						sendSMS("Task : "+todo.getTitle()+" Completed.", clientnumber);
+						//sendSMS("Task : "+todo.getTitle()+" Completed.", clientnumber);
 					}
 					return true;
 				}
