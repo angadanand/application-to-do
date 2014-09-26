@@ -10,7 +10,7 @@ $(document).ready(function(){
   
   $("#testrest").click(function(){
 	 $.ajax({
-		 url: "http://localhost:8080/rest/todo/test"
+		 url: "/rest/todo/test"
 	 }).then(function(data){
 		$('.info').text(data)
 	 });

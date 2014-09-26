@@ -1,1 +1,1 @@
-web: java com.todo.Main
+web: java -cp target/classes:target/dependency/* com.todo.Main
