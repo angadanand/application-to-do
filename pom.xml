@@ -2,19 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.todo</groupId>
+    <groupId>com.todo</groupId>
     <version>1.0</version>
     <artifactId>To-Do-App</artifactId>
-    <url>http://maven.apache.org</url>
   	<properties>
   	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <repositories>
-    <repository>
-     <id>sonatype</id>
-     <name>Sonatype Groups</name>
-     <url>https://oss.sonatype.org/content/groups/public/</url>
-   	</repository>
+	    <repository>
+	     <id>sonatype</id>
+	     <name>Sonatype Groups</name>
+	     <url>https://oss.sonatype.org/content/groups/public/</url>
+	   	</repository>
     </repositories>
     
     <dependencies>
