@@ -80,12 +80,12 @@ public class ToDoService {
 	@Path("/storrednumber")
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response getClientNumber(){
-		if(data.getClientnumber().equals("")){
+		if(ToDoController.getClientnumber().equals("")){
 			return Response.status(200).entity("Number not set").build();
 		}
 		else{
 			//This is just to store the return format for security reasons.
-			String temp = data.getClientnumber().substring(0, 2)+"******"+data.getClientnumber().substring(8, 12);
+			String temp = ToDoController.getClientnumber().substring(0, 2)+"******"+data.getClientnumber().substring(8, 12);
 			return Response.status(200).entity("Number on tab : "+temp).build();
 		}
 	}

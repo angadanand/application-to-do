@@ -22,7 +22,7 @@ public class ToDoController extends BaseController{
 		clientnumber = "";
 	}
 	
-	public String getClientnumber(){
+	public static String getClientnumber(){
 		return clientnumber;
 	}
 	
