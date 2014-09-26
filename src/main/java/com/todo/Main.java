@@ -44,7 +44,6 @@ public class Main {
         server.setHandler(root);
 
         server.start();
-        ToDoService td = new ToDoService();
         server.join();
     }
 
