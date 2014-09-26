@@ -100,7 +100,7 @@ public class ToDoService {
 	@Consumes(MediaType.TEXT_PLAIN)
 	public Response setClientNumber(String number){
 		if(number.length() == 12 && number.subSequence(0, 2).equals("+1")){
-			data.setClientnumber(number);
+			ToDoController.setClientnumber(number);
 			String temp = data.getClientnumber().substring(0, 2)+"******"+data.getClientnumber().substring(8, 12);
 			return Response.status(200).entity(temp + " Set as default messaging number").build();
 		}
