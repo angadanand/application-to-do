@@ -3,6 +3,8 @@ package com.todo;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
 
+import com.todo.resources.ToDoService;
+
 /**
  *
  * This class launches the web application in an embedded Jetty container.
@@ -42,6 +44,7 @@ public class Main {
         server.setHandler(root);
 
         server.start();
+        ToDoService td = new ToDoService();
         server.join();
     }
 
