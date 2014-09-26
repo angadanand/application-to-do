@@ -3,12 +3,24 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800|Roboto:100,300,400,700" rel="stylesheet" type="text/css">
+<link href="scripts/css/bootstrap.min.css" rel="stylesheet">
+<link href="scripts/css/buttons.css" rel="stylesheet">
 </head>
 <body>
-	<p class="info" id="demo" style="color:'red'" onmouseover="test()">Click Here.</p>
-	<button id="show">Show</button> &nbsp;&nbsp;&nbsp; <button id="hide">Hide</button><br />
-	<button id="testrest">Test Restful Service</button>
+	<table width="60%" border="0" style="margin-left:auto; margin-right:auto">
+		<tr>
+			<td align="center">Title :</td>
+			<td align="center"><input type="text" id="title" /></td>
+		</tr>
+		<tr>
+			<td align="center">Body :</td>
+			<td align="center"><textarea rows="4" cols="25"></textarea></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><button id="addToDo" class="btn btn-primary round btn-sm">Add</button></td>
+		</tr>
+	</table>
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="scripts/test.js"></script>
 </html>

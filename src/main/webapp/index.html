@@ -1,9 +1,20 @@
+<!DOCTYPE html>
 <html>
-<head> <title>Testing</title></head>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script> 
+    $(function(){
+      $("#header").load("header.html"); 
+    });
+    $(function(){
+        $("#body").load("addToDo.html"); 
+      });
+    </script>
+</head>
 <body>
-	<h1><center>Testing </center></h1>
-	<ol>
-	<li> <a href="addToDo.html">Add Tasks</a>
-	</ol>
+	<div id="header"></div>
+	<div id="body"></div>
 </body>
 </html>

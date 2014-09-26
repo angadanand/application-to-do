@@ -27,7 +27,7 @@ public class ToDoController extends BaseController{
 	}
 	
 	public static void setClientnumber(String clientnum){
-		clientnumber = clientnum;
+		clientnumber = new String(clientnum);
 	}
 	
 	public ArrayList<ToDo> getDone(){
