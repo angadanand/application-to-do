@@ -1,6 +1,7 @@
 package com.todo.templates;
 
 import com.todo.configuration.SearchConfiguration;
+import com.todo.configuration.TwilioConfiguration;
 import com.twilio.sdk.TwilioRestClient;
 import com.twilio.sdk.TwilioRestException;
 import com.twilio.sdk.resource.factory.MessageFactory;
@@ -35,7 +36,7 @@ public abstract class BaseController {
 	final protected static String SMS_NUMBER = "+15595004618";
 	
 	private static JestClient esclient = new SearchConfiguration().jestClient();
-	//private static TwilioRestClient smsclient = new TwilioConfiguration().getTwilioClient();
+	private static TwilioRestClient smsclient = new TwilioConfiguration().getTwilioClient();
 	
 	protected void checkIndices()
 	{
@@ -106,7 +107,7 @@ public abstract class BaseController {
 		List<ToDo> todosInESDocument = searchESDocument("*");
 		return todosInESDocument;
 	}
-	/*
+	
 	protected boolean sendSMS(String message, String clientnumber){
 		ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
 		params.add(new BasicNameValuePair("To", clientnumber));
@@ -128,5 +129,4 @@ public abstract class BaseController {
 			return false;
 		}
 	}
-	*/
 }
