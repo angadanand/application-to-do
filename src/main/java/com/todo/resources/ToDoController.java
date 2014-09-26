@@ -18,6 +18,7 @@ public class ToDoController extends BaseController{
 	static private ArrayList<ToDo> tasksnotdone = new ArrayList<ToDo>();
 	static private String clientnumber;
 	
+	
 	public ToDoController(){
 		clientnumber = "";
 	}

@@ -26,7 +26,9 @@ public class ToDoService {
 		return Response.ok().entity("Service Testing Successful").build();
 	}
 	
+	
 	/*
+	 * 
 	@GET
 	@Path("/test/donelist")
 	public Response doneListInConsole(){

@@ -12,6 +12,7 @@ public class SearchConfiguration {
 	public SearchConfiguration(){}
 	public JestClient jestClient(){
 		String connectionUrl;
+		
 		if(System.getenv("SEARCHBOX_URL") != null){
 			connectionUrl = System.getenv("SEARCHBOX_URL");
 		}
