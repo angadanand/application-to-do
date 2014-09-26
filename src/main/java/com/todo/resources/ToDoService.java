@@ -16,7 +16,7 @@ import com.todo.templates.ToDo;
 @Path("/todo")
 public class ToDoService {
 	
-	private static ToDoController data = new ToDoController();
+	private ToDoController data = new ToDoController();
 	
 	//Testing Service.
 	@GET
