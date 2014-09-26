@@ -16,13 +16,11 @@
      <url>https://oss.sonatype.org/content/groups/public/</url>
    	</repository>
     </repositories>
+    
     <dependencies>
     
-    	
-	    
-	    <!-- Jetty  -->
-	    
-        <dependency>
+        <!-- Jetty  -->
+	    <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlet</artifactId>
             <version>7.6.0.v20120127</version>
