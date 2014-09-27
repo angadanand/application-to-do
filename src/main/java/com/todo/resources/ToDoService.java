@@ -102,7 +102,7 @@ public class ToDoService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response saveToDo(final ToDo todo){
 		todo.setId(""+UUID.randomUUID());
-		if(data.saveToDo(todo)){
+		if(!(todo.getTitle().trim().equals("")) && data.saveToDo(todo)){
 			return Response.status(201).entity("Todo added.").build();
 		}
 		else{

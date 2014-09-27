@@ -5,6 +5,9 @@
 <title>Insert title here</title>
 <link href="scripts/css/bootstrap.min.css" rel="stylesheet">
 <link href="scripts/css/buttons.css" rel="stylesheet">
+<style>
+	td{ padding:5px }
+</style>
 </head>
 <body>
 	<div id="header">
@@ -14,7 +17,6 @@
 			  <li id="nav_settings"><a href="settings.html">Settings</a></li>
 			</ul>
 		</div>
-		
 	<br />
 	<div id="body">
 	<table width="50%" border="0" style="margin-left:auto; margin-right:auto">
@@ -29,6 +31,9 @@
 				<button class="btn btn-primary round btn-sm" id="btn_search">Search</button></td>
 			</tr>
 		</table>
+		<br />
+		<div class="alert alert-success" id="success" style="width:7cm;text-align:center;margin-left:auto;margin-right:auto;"><b>Successfully Completed!</b></div>
+		<div class="alert alert-danger" id="failure" style="width:7cm;text-align:center;margin-left:auto;margin-right:auto;"><b>Some Error Occurred!</b></div>
 		<div id="resulttable"></div>
 	</div>
 

@@ -2,6 +2,7 @@
  * for the Search page
  */
 
+var currentdata;
 function tableString(data){
 	var result="<h3 style='text-align:center'>Results from Tasks Still Left to do</h3>" +
 			"<table width='70%' border='1' style='margin-left:auto; margin-right:auto;'>" +
@@ -13,9 +14,9 @@ function tableString(data){
 			result+="<tr>" +
 			"<td>"+data[i].title+"</td>" +
 			"<td>"+data[i].body+"</td>" +
-			"<td align='center'><button class='btn btn-primary btn-sm'>Done</button> &nbsp;&nbsp;" +
+			"<td align='center'><button class='btn btn-primary btn-sm' onclick='markDone("+i+")'>Done</button> &nbsp;&nbsp;" +
 			"<button class='btn btn-primary btn-sm'>Edit</button> &nbsp;&nbsp;" +
-			"<button class='btn btn-warning btn-sm'>Delete</button></td></td>" +
+			"<button class='btn btn-warning btn-sm' onclick='markDone("+i+")'>Delete</button></td></td>" +
 			"</tr>";	
 		}
 	}
@@ -30,17 +31,76 @@ function tableString(data){
 			result+="<tr>" +
 			"<td>"+data[i].title+"</td>" +
 			"<td>"+data[i].body+"</td>" +
-			"<td align='center'><button class='btn btn-primary btn-sm'>Redo</button> &nbsp;&nbsp;" +
+			"<td align='center'><button class='btn btn-primary btn-sm' onclick='markDone("+i+")'>Redo</button> &nbsp;&nbsp;" +
 			"<button class='btn btn-primary btn-sm'>Edit</button> &nbsp;&nbsp;" +
-			"<button class='btn btn-warning btn-sm'>Delete</button></td></td>" +
+			"<button class='btn btn-warning btn-sm' onclick='markDone("+i+")'>Delete</button></td></td>" +
 			"</tr>";	
 		}
 	}
 	return result+"</table>";
 };
 
+function markDone(index){
+	if(confirm("Change '"+currentdata[index].title+"' status to Done/Redo ?")){
+		var tosend=toFullJsonString(currentdata[index].id,currentdata[index].title, currentdata[index].body, currentdata[index].done);
+		$.ajax({
+			type:"POST",
+			url:"/rest/todo/markdone",
+			contentType:"application/json",
+			data:tosend,
+			success: function(data){
+				successfulNotification("Updated.");
+			},
+			error: function(data){
+				unsuccessfulNotification("Error Occurred.");
+			}
+		});
+	}
+};
+
+function deleteToDo(index){
+	if(confirm("Are you sure you want to delete '"+currentdata[index].title+"' ?")){
+		var tosend=toFullJsonString(currentdata[index].id,currentdata[index].title, currentdata[index].body, currentdata[index].done);
+		$.ajax({
+			type:"DELETE",
+			url:"/rest/todo/delete",
+			contentType:"application/json",
+			data:tosend,
+			success: function(data){
+				successfulNotification("Successfully Deleted.");
+			},
+			error: function(data){
+				unsuccessfulNotification("Error Occurred.");
+			}
+		});
+	}
+};
+
+function toFullJsonString(id,title,body,done){
+	return '{"id":"'+id+'","title":"'+title +'","body":"'+body+'","done" : "'+done+'"}';
+};
+
+function toJsonString(title,body,done){
+	return '{"title":"'+title +'","body":"'+body+'","done" : "'+done+'"}';
+};
+
+function successfulNotification(message){
+	$("#success").text(message);
+	$("#failure").hide();
+	$("#success").show();
+	setTimeout('location.reload()',800);
+};
+
+function unsuccessfulNotification(message){
+	$("#failure").text(message);
+	$("#failure").show();
+	$("#success").hide();
+	setTimeout('location.reload()',800);
+};
+
 $(document).ready(function(){
-	
+	$("#success").hide();
+	$("#failure").hide();
 	$("#btn_search").click(function(){
 		var tosearch=$("#search").val();
 			$.ajax({
@@ -50,6 +110,7 @@ $(document).ready(function(){
 				data:tosearch,
 				dataType:"json",
 				success: function(data){
+					currentdata = data;
 					var table = tableString(data);
 					$("#resulttable").empty();
 					$("#resulttable").append(table);

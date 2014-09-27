@@ -2,6 +2,8 @@
  * Hacking away at some JQuery and Java Script
  * I am not very good with JS and JQuery and I know there are many functions I can put into functions
  * but I chose to do it the quickest way possible
+ * 
+ * All RestFul services have used relative path since they exist in the same domain under /rest
  */
 var currentdata;
 function tableString(data,done, welcomestring){
@@ -14,13 +16,54 @@ function tableString(data,done, welcomestring){
 		result+="<tr>" +
 		"<td>"+data[i].title+"</td>" +
 		"<td>"+data[i].body+"</td>" +
-		"<td align='center'><button class='btn btn-primary btn-sm'>"+done+"</button> &nbsp;&nbsp;" +
+		"<td align='center'><button class='btn btn-primary btn-sm' onclick='markDone("+i+")'>"+done+"</button> &nbsp;&nbsp;" +
 		"<button class='btn btn-primary btn-sm'>Edit</button> &nbsp;&nbsp; " +
-		"<button class='btn btn-warning btn-sm'>Delete</button></td>" +
+		"<button class='btn btn-warning btn-sm' onclick='deleteToDo("+i+")'>Delete</button></td>" +
 		"</tr>";
 	}
 	return result+"</table>";
 };
+
+function markDone(index){
+	if(confirm("Change '"+currentdata[index].title+"' status to Done/Redo ?")){
+		var tosend=toFullJsonString(currentdata[index].id,currentdata[index].title, currentdata[index].body, currentdata[index].done);
+		$.ajax({
+			type:"POST",
+			url:"/rest/todo/markdone",
+			contentType:"application/json",
+			data:tosend,
+			success: function(data){
+				successfulNotification("Updated");
+			},
+			error: function(data){
+				unsuccessfulNotification("Error Occurred");
+			}
+		});
+	}
+}
+
+function deleteToDo(index){
+	if(confirm("Are you sure you want to delete '"+currentdata[index].title+"' ?")){
+		var tosend=toFullJsonString(currentdata[index].id,currentdata[index].title, currentdata[index].body, currentdata[index].done);
+		$.ajax({
+			type:"DELETE",
+			url:"/rest/todo/delete",
+			contentType:"application/json",
+			data:tosend,
+			success: function(data){
+				successfulNotification("Successfully Deleted.");
+			},
+			error: function(data){
+				unsuccessfulNotification("Error Occurred");
+			}
+		});
+	}
+}
+
+// For some reason method overloading was not supported/not working. 
+function toFullJsonString(id,title,body,done){
+	return '{"id":"'+id+'","title":"'+title +'","body":"'+body+'","done" : "'+done+'"}';
+}
 
 function toJsonString(title,body,done){
 	return '{"title":"'+title +'","body":"'+body+'","done" : "'+done+'"}';
@@ -28,23 +71,22 @@ function toJsonString(title,body,done){
 
 function successfulNotification(message){
 	$("#success").text(message);
-	$("#success").css("height","auto");
-	$("#failure").css("height","0");
-	$("#failure").css("visibility","hidden");
-	$("#success").css("visibility","visible");
+	$("#failure").hide();
+	$("#success").show();
 	setTimeout('location.reload()',800);
 };
 
 function unsuccessfulNotification(message){
 	$("#failure").text(message);
-	$("#success").css("height","0");
-	$("#failure").css("height","auto");
-	$("#failure").css("visibility","visible");
-	$("#success").css("visibility","hidden");
+	$("#failure").show();
+	$("#success").hide();
 	setTimeout('location.reload()',800);
 };
 
 $(document).ready(function(){
+	$("#success").hide();
+	$("#failure").hide();
+	
 	function addDefaultTable(){
 		$.ajax({
 		type:"GET",
@@ -82,10 +124,10 @@ $(document).ready(function(){
 			contentType:"application/json",
 			data:c,
 			success: function(data){
-				successfulNotification(data)
+				successfulNotification(data);
 			},
 			error: function(data){
-				unsuccessfulNotification(data)
+				unsuccessfulNotification("Error try Again.");
 			}
 		});
 	});
