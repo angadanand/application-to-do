@@ -97,6 +97,19 @@ public class ToDoService {
 	 * Check Null can be checked in JavaScript by using .isNaN()
 	 * 
 	 */
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response saveToDo(final ToDo todo){
+		todo.setId(""+UUID.randomUUID());
+		if(data.saveToDo(todo)){
+			return Response.status(201).entity("Todo added.").build();
+		}
+		else{
+			return Response.status(400).entity("Error please try again.").build();
+		}
+	}
+	
 	@POST
 	@Path("/changenumber")
 	@Consumes(MediaType.TEXT_PLAIN)
@@ -122,18 +135,6 @@ public class ToDoService {
 		catch(Exception e){
 			e.printStackTrace();
 			return Response.status(400).entity("Search Error Please try Again.").build();
-		}
-	}
-	
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response saveToDo(final ToDo todo){
-		todo.setId(""+UUID.randomUUID());
-		if(data.saveToDo(todo)){
-			return Response.status(201).entity("Todo added.").build();
-		}
-		else{
-			return Response.status(400).entity("Error please try again.").build();
 		}
 	}
 	
