@@ -18,7 +18,7 @@ public class ToDoService {
 	
 	static ToDoController data = new ToDoController();
 	
-	//Testing Service.
+	//Testing Service if this succeeds then it means that the web service will work normally.
 	@GET
 	@Path("/test")
 	@Produces(MediaType.TEXT_PLAIN)

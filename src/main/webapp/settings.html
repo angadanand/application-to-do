@@ -2,7 +2,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Settings : ToDo</title>
+<link href="scripts/css/bootstrap.min.css" rel="stylesheet">
+<link href="scripts/css/buttons.css" rel="stylesheet">
+<style type="text/css">
+td { padding: 5px}
+</style>
 </head>
 <body>
 	<div id="header">
@@ -12,6 +17,32 @@
 		  <li id="nav_settings" class="active"><a href="settings.html">Settings</a></li>
 		</ul>
 	</div>
+	<div id="body">
 	<br />
+	<h3 style="text-align:center;font-family:sans-serif;">Settings</h3>
+	<div class="alert alert-success" id="success" style="width:7cm;text-align:center;margin-left:auto;margin-right:auto;"><b>Successfully Completed!</b></div>
+	<div class="alert alert-danger" id="failure" style="width:7cm;text-align:center;margin-left:auto;margin-right:auto;"><b>Some Error Occurred!</b></div>
+	</div>
+	<table width="50%" border="0" style="margin-left:auto; margin-right:auto">
+		<tr>
+			<td align="center"><input type="text" id="clientnumber" placeholder="+1xxxxxxxxxx" maxlength="12">
+			<td align="left"><button class="btn btn-primary round btn-sm" id="btn_updatenumber">Update</button>
+		</tr>
+		<tr>
+		<td align="center"><p id="currentclientnumber" style="color:red;"></td>
+		</tr>
+		<tr> <td> &nbsp; </td> </tr>
+		<tr>
+		<td>Clear the list of tasks which are not yet completed.</td>
+		<td><button class="btn btn-danger round btn-sm" id="btn_deletenotdone">Delete To Do List</button></td>
+		</tr>
+		<tr>
+		<td>Clear the list of completed tasks.</td>
+		<td><button class="btn btn-danger round btn-sm" id="btn_deletedone">Delete "Completed" To Do List</button></td>
+		</tr>
+	</table>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="scripts/js/bootstrap.min.js"></script>
+<script src="scripts/js/settings.js"></script>
 </body>
 </html>

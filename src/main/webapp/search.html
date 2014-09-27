@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Search : ToDo</title>
 <link href="scripts/css/bootstrap.min.css" rel="stylesheet">
 <link href="scripts/css/buttons.css" rel="stylesheet">
 <style>
@@ -36,8 +36,26 @@
 		<div class="alert alert-danger" id="failure" style="width:7cm;text-align:center;margin-left:auto;margin-right:auto;"><b>Some Error Occurred!</b></div>
 		<div id="resulttable"></div>
 	</div>
+	
+	<div class="modal fade" role="dialog" id="updateform" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	   		<h4 class="modal-title">Update Task</h4>
+	   		</div>
+	      	<table width="70%" border="0" style="margin-left:auto; margin-right:auto">
+			<tr>
+				<td align="center"><input type="text" id="update_title" class="form-control" placeholder="Title"/></td>
+				<td align="center"><textarea id="update_desc" rows="4" cols="25" placeholder="Task Description"></textarea></td>
+				<td align="center"><button id="btn_updatetodo" class="btn btn-primary round btn-sm" data-dismiss="modal" onclick="updateToDo()">Update</button></td>
+			</tr>
+			</table>
+	    </div>
+	  </div>
+	</div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="scripts/js/bootstrap.min.js"></script>
 <script src="scripts/js/search.js"></script>
 </body>
 </html>

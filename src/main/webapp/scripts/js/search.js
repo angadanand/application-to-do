@@ -3,6 +3,7 @@
  */
 
 var currentdata;
+var currentindex;
 function tableString(data){
 	var result="<h3 style='text-align:center'>Results from Tasks Still Left to do</h3>" +
 			"<table width='70%' border='1' style='margin-left:auto; margin-right:auto;'>" +
@@ -15,8 +16,8 @@ function tableString(data){
 			"<td>"+data[i].title+"</td>" +
 			"<td>"+data[i].body+"</td>" +
 			"<td align='center'><button class='btn btn-primary btn-sm' onclick='markDone("+i+")'>Done</button> &nbsp;&nbsp;" +
-			"<button class='btn btn-primary btn-sm'>Edit</button> &nbsp;&nbsp;" +
-			"<button class='btn btn-warning btn-sm' onclick='markDone("+i+")'>Delete</button></td></td>" +
+			"<button class='btn btn-primary btn-sm' data-toggle='modal' data-target='#updateform' onclick='initEdit("+i+")'>Edit</button> &nbsp;&nbsp;" +
+			"<button class='btn btn-danger btn-sm' onclick='markDone("+i+")'>Delete</button></td></td>" +
 			"</tr>";	
 		}
 	}
@@ -32,8 +33,8 @@ function tableString(data){
 			"<td>"+data[i].title+"</td>" +
 			"<td>"+data[i].body+"</td>" +
 			"<td align='center'><button class='btn btn-primary btn-sm' onclick='markDone("+i+")'>Redo</button> &nbsp;&nbsp;" +
-			"<button class='btn btn-primary btn-sm'>Edit</button> &nbsp;&nbsp;" +
-			"<button class='btn btn-warning btn-sm' onclick='markDone("+i+")'>Delete</button></td></td>" +
+			"<button class='btn btn-primary btn-sm' data-toggle='modal' data-target='#updateform' onclick='initEdit("+i+")'>Edit</button> &nbsp;&nbsp;" +
+			"<button class='btn btn-danger btn-sm' onclick='markDone("+i+")'>Delete</button></td></td>" +
 			"</tr>";	
 		}
 	}
@@ -49,14 +50,36 @@ function markDone(index){
 			contentType:"application/json",
 			data:tosend,
 			success: function(data){
-				successfulNotification("Updated.");
+				successfulNotification("Marked as Completed.");
 			},
 			error: function(data){
-				unsuccessfulNotification("Error Occurred.");
+				unsuccessfulNotification("Error Occurred!");
 			}
 		});
 	}
 };
+
+function initEdit(index){
+	currentindex=index;
+	$("#update_title").val(currentdata[index].title);
+	$("#update_desc").val(currentdata[index].body);
+};
+
+function updateToDo(){
+	var tosend=toFullJsonString(currentdata[currentindex].id,$("#update_title").val(),$("#update_desc").val(),currentdata[currentindex].done);
+	$.ajax({
+		type:"POST",
+		url:"/rest/todo/update",
+		contentType:"application/json",
+		data:tosend,
+		success: function(data){
+			successfulNotification("Updated Successfully.");
+		},
+		error: function(data){
+			unsuccessfulNotification("Error Occurred!");
+		}
+	});
+}
 
 function deleteToDo(index){
 	if(confirm("Are you sure you want to delete '"+currentdata[index].title+"' ?")){
@@ -70,7 +93,7 @@ function deleteToDo(index){
 				successfulNotification("Successfully Deleted.");
 			},
 			error: function(data){
-				unsuccessfulNotification("Error Occurred.");
+				unsuccessfulNotification("Error Occurred!");
 			}
 		});
 	}
