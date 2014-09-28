@@ -172,6 +172,18 @@ public class ToDoService {
 	 */
 	
 	@DELETE
+	@Path("/delete/clientnumber")
+	public Response deleteClientNumber(){
+		try{
+			ToDoController.setClientnumber("");
+			return Response.status(200).entity("Number Successfully Removed.").build();
+		}
+		catch(Exception e){
+			return Response.status(400).entity("Error.").build();
+		}
+	}
+	
+	@DELETE
 	@Path("/delete")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response delete(final ToDo todo){

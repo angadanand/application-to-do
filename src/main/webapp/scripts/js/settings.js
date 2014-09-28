@@ -71,6 +71,22 @@ $(document).ready(function(){
 		}
 	});
 	
+	$("#btn_deletenum").click(function(){
+		if(confirm("Are you sure you want to delete the number on tab?")){
+			$.ajax({
+				type:"DELETE",
+				url:"rest/todo/delete/clientnumber",
+				dataType:"text",
+				success: function(data){
+					successfulNotification(data);
+				},
+				error: function(data){
+					unsuccessfulNotification(data);
+				}
+			});
+		}
+	});
+	
 	$("#btn_updatenumber").click(function(){
 		$.ajax({
 			type:"POST",
