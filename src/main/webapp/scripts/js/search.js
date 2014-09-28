@@ -6,7 +6,7 @@ var currentdata;
 var currentindex;
 function tableString(data){
 	var result="<h3 style='text-align:center'>Results from Tasks Still Left to do</h3>" +
-			"<table width='70%' border='1' style='margin-left:auto; margin-right:auto;'>" +
+			"<table width='90%' border='1' style='margin-left:auto; margin-right:auto;'>" +
 	"<tr> <th>Title</th> " +
 	"<th>Body</th> " +
 	"<th>Options</th> </tr>";
@@ -23,7 +23,7 @@ function tableString(data){
 	}
 	result+="</table> <br /> " +
 			"<h3 style='text-align:center'>Results from Completed Tasks</h3>" +
-			"<table width='70%' border='1' style='margin-left:auto; margin-right:auto;'>"+
+			"<table width='90%' border='1' style='margin-left:auto; margin-right:auto;'>"+
 			"<tr> <th>Title</th> " +
 			"<th>Body</th> " +
 			"<th>Options</th> </tr>";
