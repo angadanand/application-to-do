@@ -43,13 +43,18 @@
 	      <div class="modal-header">
 	   		<h4 class="modal-title">Update Task</h4>
 	   		</div>
-	      	<table width="70%" border="0" style="margin-left:auto; margin-right:auto">
+	      	<table border="0" style="margin-left:auto; margin-right:auto">
 			<tr>
+				<td align="right"><b>Title:</b></td>
 				<td align="center"><input type="text" id="update_title" class="form-control" placeholder="Title"/></td>
+				<td align="right"><b>Description:</b></td>
 				<td align="center"><textarea id="update_desc" rows="4" cols="25" placeholder="Task Description"></textarea></td>
-				<td align="center"><button id="btn_updatetodo" class="btn btn-primary round btn-sm" data-dismiss="modal" onclick="updateToDo()">Update</button></td>
 			</tr>
 			</table>
+			<div class="modal-footer">
+			<button class="btn btn-default round btn-sm" data-dismiss="modal">Close</button>
+			<button id="btn_updatetodo" class="btn btn-primary round btn-sm" data-dismiss="modal" onclick="updateToDo()">Update</button>
+			</div>
 	    </div>
 	  </div>
 	</div>
