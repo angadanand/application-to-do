@@ -33,7 +33,7 @@ public abstract class BaseController {
 	
 	final protected static String ES_INDEX = "todos";
 	final protected static String ES_TYPE = "todo";
-	final protected static String SMS_NUMBER = "+15595004618";
+	final protected static String SMS_NUMBER = "+<Number>";
 	
 	private static JestClient esclient = new SearchConfiguration().jestClient();
 	private static TwilioRestClient smsclient = new TwilioConfiguration().getTwilioClient();
